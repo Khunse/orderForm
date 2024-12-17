@@ -1,0 +1,25 @@
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    container_name: mssql-container
+    environment:
+      ACCEPT_EULA : "Y"
+      MSSQL_SA_PASSWORD: "Khunaung123"
+    ports:
+      - "1437:1433"
+    volumes:
+      - D:\assigments\orderform\sql-scripts:/home/sql-scripts
+
+  nysapp:
+      image: nys:0.1
+      container_name: nyssite
+      depends_on: 
+        - mssql
+      # environment:
+      #   S3_Url : "http://localawsservice:4572"
+      #   SQS_Url : "http://localawsservice:4566"
+      #   DB_Connection : "Server=mssql,1433;Database=MovieDB;User Id=sa;Password=Khunaung123;"
+      #   AWS_Access_Key_ID : "test"
+      #   AWS_Secret_Access_Key : "test"
+      #   AWS_Region : "ap-southeast-1"
+      #   AWS_SQS_Url : "http://localawsservice:4566/000000000000/myMovieQueue"
