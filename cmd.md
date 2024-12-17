@@ -1,0 +1,1 @@
+docker exec -d mssql-container /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Khunaung123 -i /homt/sql-scripts/tablescript.sql

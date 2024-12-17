@@ -8,13 +8,18 @@ services:
     ports:
       - "1437:1433"
     volumes:
-      - D:\assigments\orderform\sql-scripts:/home/sql-scripts
+      - D:\assigments\orderform\sql:/home/sql-scripts
 
   nysapp:
-      image: nys:0.1
+      image: nys:0.6
       container_name: nyssite
       depends_on: 
         - mssql
+      ports:
+        - "5000:5000"
+        - "5001:5001"
+        - "5002:5002"
+        - "8080:8080"
       # environment:
       #   S3_Url : "http://localawsservice:4572"
       #   SQS_Url : "http://localawsservice:4566"
