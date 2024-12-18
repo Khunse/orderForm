@@ -67,7 +67,7 @@ public class DataAccess : IDataAccess
 
             if( orderSearchFilter.due_date is not null )
             {
-                orders = orders.Where( x => x.due_date.Equals(orderSearchFilter.due_date));
+                orders = orders.Where( x => x.due_date.Date.Equals(orderSearchFilter.due_date.Value.Date));
             }
 
             dataList = await orders.ToListAsync();
