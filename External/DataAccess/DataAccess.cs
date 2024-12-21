@@ -27,7 +27,7 @@ public class DataAccess : IDataAccess
                 design = order.design,
                 due_date = order.due_date,
                 IsDelete = false,
-                order_date = order.order_date,
+                order_date = DateTime.Now,
                 order_name = order.order_name,
                 packaging = order.packaging,
                 printing = order.printing,
@@ -67,6 +67,8 @@ public class DataAccess : IDataAccess
 
             if( orderSearchFilter.due_date is not null )
             {
+                // var orderda = orderSearchFilter.due_date.Value.Date;
+
                 orders = orders.Where( x => x.due_date.Date.Equals(orderSearchFilter.due_date.Value.Date));
             }
 

@@ -11,7 +11,7 @@ services:
       - D:\assigments\orderform\sql:/home/sql-scripts
 
   nysapp:
-      image: nys:0.6
+      image: nys:0.7
       container_name: nyssite
       depends_on: 
         - mssql
